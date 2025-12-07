@@ -1,0 +1,164 @@
+/* One Dark Theme */
+pre[class*="language-"],
+code[class*="language-"] {
+  color: #abb2bf;
+  background: #282c34;
+  border-radius: 0px !important;
+  text-shadow: none;
+}
+
+pre[class*="language-"] {
+  background: #282c34;
+}
+
+/* Comments */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #5c6370;
+  font-style: italic;
+}
+
+/* Punctuation */
+.token.punctuation {
+  color: #abb2bf;
+}
+
+/* Properties, Tags, Symbols, Constants */
+.token.property,
+.token.tag,
+.token.symbol,
+.token.deleted,
+.token.constant {
+  color: #e06c75;
+}
+
+/* Booleans, Numbers */
+.token.boolean,
+.token.number {
+  color: #d19a66;
+}
+
+/* Selectors, Strings, Characters, Attributes, Inserted */
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #98c379;
+}
+
+/* Operators, Entities, URLs */
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #56b6c2;
+}
+
+/* At-rules, Keywords */
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #c678dd;
+}
+
+/* Functions, Classes */
+.token.function,
+.token.class-name {
+  color: #61afef;
+}
+
+/* Regex, Important */
+.token.regex,
+.token.important,
+.token.variable {
+  color: #c678dd;
+}
+
+/* Important, Bold */
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+/* Italic */
+.token.italic {
+  font-style: italic;
+}
+
+/* Entity */
+.token.entity {
+  cursor: help;
+}
+
+.token.combinator {
+  color: #abb2bf;
+}
+
+.code-highlight {
+  float: left;
+  min-width: 100%;
+}
+
+.code-line {
+  display: block;
+  padding-left: 10px;
+  padding-right: 14px;
+  margin-left: -16px;
+  margin-right: -16px;
+  border-left: 4px solid rgba(0, 0, 0, 0);
+  line-height: 1.5rem;
+}
+
+.code-line.inserted {
+  background-color: theme("colors.emerald.900");
+}
+
+.code-line.deleted {
+  background-color: theme("colors.red.900");
+}
+
+.highlight-line {
+  margin-left: -14px;
+  margin-right: -16px;
+  background-color: theme("colors.zinc.800");
+  border-left: 2px solid theme("colors.amber.400");
+  display: block !important;
+  border-radius: 0 !important;
+}
+
+.line-number::before {
+  display: inline-block;
+  width: 1rem;
+  text-align: right;
+  margin-right: 16px;
+  margin-left: -8px;
+  color: theme("colors.zinc.500");
+  content: attr(line);
+}
+
+.rehype-code-title {
+  margin: 0 !important;
+  display: inline-flex;
+  position: relative;
+  top: 1rem;
+  background: theme("colors.zinc.900");
+  color: theme("colors.zinc.100");
+  font-family: theme("fontFamily.mono");
+  padding: 0.25rem 1.5rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  border-top: 2px solid theme("colors.amber.400");
+  font-size: 0.8rem;
+}
+
+.code-line.inserted {
+  background-color: theme("colors.emerald.900");
+}
+
+.code-line.deleted {
+  background-color: theme("colors.red.900");
+}
