@@ -44,6 +44,7 @@ export default function Navigation() {
         <NavigationMenuList className="flex-wrap font-bold gap-2">
           {map(LINK_LIST, (link) => (
             <NavigationMenuLink
+              key={link.url}
               className="rounded-full cursor-pointer"
               href={link.url}
               target="_blank"

@@ -1,12 +1,6 @@
+import { PostMeta } from "@/types/post";
 import fs from "fs";
 import path from "path";
-
-export type PostMeta = {
-  slug: string;
-  title: string;
-  date: string;
-  description: string;
-};
 
 const appDirectory = path.join(process.cwd(), "app");
 
@@ -22,13 +16,11 @@ export async function getPostsByCategory(category: string): Promise<PostMeta[]> 
   const posts: PostMeta[] = [];
 
   for (const entry of entries) {
-    // 폴더이고 _로 시작하지 않는 경우만 (Next.js 컨벤션)
     if (entry.isDirectory() && !entry.name.startsWith("_")) {
       const mdxPath = path.join(categoryPath, entry.name, "page.mdx");
 
       if (fs.existsSync(mdxPath)) {
         try {
-          // 동적으로 MDX 모듈의 postMeta를 가져옴
           const mod = await import(`@/app/${category}/${entry.name}/page.mdx`);
 
           if (mod.metadata) {
@@ -37,6 +29,8 @@ export async function getPostsByCategory(category: string): Promise<PostMeta[]> 
               title: mod.metadata.title,
               date: mod.metadata.date,
               description: mod.metadata.description,
+              type: mod.metadata.type,
+              categories: mod.metadata.categories,
             });
           }
         } catch (e) {
@@ -46,7 +40,6 @@ export async function getPostsByCategory(category: string): Promise<PostMeta[]> 
     }
   }
 
-  // 날짜 기준 내림차순 정렬
   posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return posts;

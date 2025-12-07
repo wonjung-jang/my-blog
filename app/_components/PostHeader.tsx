@@ -1,17 +1,17 @@
 import { Badge } from "@/components/ui/badge";
 import { TypographyH1 } from "@/components/ui/TypographyH1";
 import { TypographyMuted } from "@/components/ui/TypographyMuted";
-import { Post } from "@/types/post";
+import { PostMeta } from "@/types/post";
 import { map } from "es-toolkit/compat";
 import { ArrowLeftIcon } from "lucide-react";
 import Link from "next/link";
 
-export default async function BlogHeader({
+export default async function PostHeader({
   title,
   date,
   categories,
   type,
-}: Omit<Post, "description">) {
+}: Omit<PostMeta, "description">) {
   return (
     <header className="w-full flex flex-col items-start gap-2 px-4 pb-4 border-b pt-16">
       <Link

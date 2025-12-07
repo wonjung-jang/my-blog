@@ -1,6 +1,7 @@
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { TypographyH1 } from "@/components/ui/TypographyH1";
-import { PostMeta } from "@/lib/mdx";
+import { PostMeta } from "@/types/post";
 import { isEmpty, map } from "es-toolkit/compat";
 import Link from "next/link";
 
@@ -22,11 +23,18 @@ export default function PostList({ posts, basePath }: Props) {
             <CardHeader>
               <CardTitle>{post.title}</CardTitle>
             </CardHeader>
-            <CardContent>
-              <CardDescription className="text-muted-foreground">
-                {post.description}
-              </CardDescription>
-              <CardDescription>{post.date}</CardDescription>
+            <CardContent className="flex flex-col gap-2">
+              <div className="flex gap-2">
+                {map(post.categories, (category) => (
+                  <Badge variant="outline">{category}</Badge>
+                ))}
+              </div>
+              <div>
+                <CardDescription className="text-muted-foreground">
+                  {post.description}
+                </CardDescription>
+                <CardDescription>{post.date}</CardDescription>
+              </div>
             </CardContent>
           </Card>
         </Link>
