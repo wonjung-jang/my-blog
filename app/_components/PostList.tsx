@@ -26,7 +26,9 @@ export default function PostList({ posts, basePath }: Props) {
             <CardContent className="flex flex-col gap-2">
               <div className="flex gap-2">
                 {map(post.categories, (category) => (
-                  <Badge variant="outline">{category}</Badge>
+                  <Badge key={category} variant="outline">
+                    {category}
+                  </Badge>
                 ))}
               </div>
               <div>
