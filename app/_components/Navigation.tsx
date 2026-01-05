@@ -30,7 +30,7 @@ const LINK_LIST = [
 
 export default function Navigation() {
   return (
-    <div className="fixed top-0 inset-x-0 bg-white px-4 py-2 border-b flex items-center justify-between">
+    <div className="fixed top-0 inset-x-0 bg-white px-4 py-2 border-b flex items-center justify-between z-50">
       <NavigationMenu>
         <NavigationMenuList className="flex-wrap font-bold gap-2">
           {map(MENU_LIST, (menu) => (

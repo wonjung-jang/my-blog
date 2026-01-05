@@ -24,7 +24,9 @@ export default async function PostHeader({
       <TypographyH1>{title}</TypographyH1>
       <div className="flex gap-1 p-1">
         {map(categories, (category) => (
-          <Badge variant="outline">{category}</Badge>
+          <Badge key={category} variant="outline">
+            {category}
+          </Badge>
         ))}
       </div>
       <TypographyMuted>{date}</TypographyMuted>
