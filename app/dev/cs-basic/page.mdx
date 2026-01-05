@@ -9,6 +9,9 @@ import {
   anti_virus,
   hdd,
   platter,
+  stack,
+  queue,
+  binary_tree,
 } from "./images";
 
 export const metadata = {
@@ -28,7 +31,7 @@ export const metadata = {
 
 ### 1-1. bit
 
-<Image src={bit} alt={"bit 이미지"} />
+<CustomImage src={bit} alt={"bit 이미지"} />
 
 컴퓨터의 모든 데이터는 0과 1로 이뤄져있다.
 왜냐하면 전기 신호를 사용하기 때문이다.
@@ -46,7 +49,7 @@ export const metadata = {
 10진수가 아닌 16진수를 사용하는 이유는 2진수와 진법 전환이 쉽기 때문이다.
 16진수의 한 자리는 2^4인 16가지를 표현할 수 있으며 이는 4자리 2진수와 같다.
 
-<Image src={color} alt={"브라우저에서 색상값을 나타내는 이미지"} />
+<CustomImage src={color} alt={"브라우저에서 색상값을 나타내는 이미지"} />
 
 4bit는 16가지 상태를 갖을 수 있고 이는 16진수의 한자리와 같다.
 컴퓨터에서 색상 데이터를 다룰 때에도 `#000000 ~ #ffffff` 로 표현한다.
@@ -67,7 +70,7 @@ export const metadata = {
 이렇게 컴퓨터에서는 0과 1을 사용해 데이터를 처리한다.
 하지만 숫자는 그렇다고 해도 문자나 이미지는 어떻게 표현할 수 있는 걸까??
 
-<Image src={ascii} alt={"ASCII CODE TABLE"} />
+<CustomImage src={ascii} alt={"ASCII CODE TABLE"} />
 
 먼저 문자는 특정 숫자에 문자를 맵핑하는 방식을 사용한다.
 예를 들면 'A'는 65, 'a'는 97에 맵핑되어 있다.
@@ -96,7 +99,7 @@ AND, OR, XOR, NOT 4가지 논리 게이트를 사용하면 산술 연산 장치,
 산술 연산을 구현할 때 가장 먼저 덧셈을 구현한다.
 사실 덧셈만 구현한다면 뺄셈, 곱셈, 나눗셈 모두 구현할 수 있다.
 
-<Image src={half_adder} alt={"반가산기"} />
+<CustomImage src={half_adder} alt={"반가산기"} />
 
 위 이미지는 input A, B가 각각 AND, XOR 논리 게이트에 이어져 결과 S와 자리 올림 C를 출력하는 반가산기(Half Adder)다.
 A와 B에 각각 전압을 흘려 보내면 S에는 전압이 흐르지 않고, C는 전압이 흐른다.
@@ -104,7 +107,7 @@ A와 B에 각각 전압을 흘려 보내면 S에는 전압이 흐르지 않고, 
 하지만 반가산기만으로는 1bit 덧셈만 처리할 수 있다.
 왜냐하면 이전 단계에서 자리올림이 발생한 결과를 input으로 받을 수 없기 때문이다.
 
-<Image src={full_adder} alt={"전가산기"} />
+<CustomImage src={full_adder} alt={"전가산기"} />
 
 따라서 전가산기(Full Adder)를 병렬로 이어붙여 32bit, 64bit 덧셈을 수행한다.
 한 자리수에 전가산기 하나씩 담당하여 해당 자리수에 출력할 결과와 자리올림 발생 여부를 다음 단계에게 전달한다.
@@ -249,7 +252,7 @@ HDD에 어떤 정보가 저장되어 있는지를 File Allocation Table(FAT)이�
 
 ### 4-2. 프로그램, 프로세스, 스레드
 
-<Image src={os} alt={"H/W, System S/W, Application S/W 3 Layer"} />
+<CustomImage src={os} alt={"H/W, System S/W, Application S/W 3 Layer"} />
 
 컴퓨터는 크게 3개의 Layer(계층)으로 나눠진다.
 가장 기반에 Hardware(Physical), 그 위에 Software(Logical또는 Virtual)가 있다.
@@ -267,7 +270,7 @@ System Software에 핵심 역할을 하는 Kernel이 존재한다.
 Kernel은 입출력 제어, 자원 관리, 접근 통제 등을 수행한다.
 System Software를 Kernel mode, Application Software를 User mode라고도 부른다.
 
-<Image src={os2} alt={"H/W, System S/W, Application S/W 3 Layer가 데이터를 주고받는 형식"} />
+<CustomImage src={os2} alt={"H/W, System S/W, Application S/W 3 Layer가 데이터를 주고받는 형식"} />
 
 프로세스는 User mode에 존재한다.
 H/W는 Kernel mode의 Driver와 연결되어 입출력을 주고 받는다.
@@ -277,7 +280,7 @@ Kernel mode에서 추상화된 인터페이스를 파일 형태로 User mode에 
 이렇게 인터페이스 파일을 통해 특정 프로세스에게 특정 요소에 접근 권한을 부여하는 역할을 운영체제가 수행한다.
 만약 다른 프로세스가 현재 사용되고 있는 Kernel 요소에 접근해야 한다면, 운영체제는 이를 통제한다.
 
-<Image src={anti_virus} alt={"백신 프로그램이 동작하는 형식"} />
+<CustomImage src={anti_virus} alt={"백신 프로그램이 동작하는 형식"} />
 
 여담으로 백신 프로그램은 조금 다르게 동작한다.
 Windows 기준으로 HDD에 저장된 데이터를 GUI 형태의 파일 탐색기를 통해 확인할 수 있다.
@@ -313,5 +316,97 @@ Page-in, Page-out 하는 동안 운영체제는 프로세스를 잠시 멈추기
 3. 메모리가 부족해도 여러 프로그램을 동시에 동작하도록 자원을 효율적으로 활용할 수 있다.
 
 ## 5. 프로그래밍
+
+### 5-1. 고급어와 저급어
+
+프로그래밍한 코드를 실행한다.
+여기서 실행은 곧 연산이다.
+연산의 주체는 CPU다.
+CPU는 Machine이라고도 한다.
+CPU는 명령에 따라 정해진 연산을 수행하는 기계 장치다.
+
+CPU가 인식할 수 있는 명령어가 있는데, 기계어(Machine Language) 또는 저급어라 한다.
+고급어는 S/W 수준에서 사람이 이해하기 쉬운 명령어다.
+우리가 작성한 코드는 고급어기 때문에 기계가 이해할 수 없어 번역이 필요하다.
+이때 번역을 컴파일(Compile), 번역하는 역할을 컴파일러(Compiler)가 수행한다.
+반대로 CPU가 이해하는 기계어를 사람이 이해하기 쉽게 심볼로 바꾼 것을 어셈블리 코드라고 한다.
+
+C언어로 User mode Application Program을 개발하면 CPU가 직접 인식할 수 있도록 컴파일이 필요하다.
+이렇게 CPU가 직접 번역하는 언어를 Native Language라고 한다.
+운영체제는 H/W에 의존하기 때문에 리눅스용으로 개발했다면 다른 운영체제에서는 동작하지 않는다.
+
+### 5-2. Virtual Machine
+
+VM(Virtual Machine)이란 S/W로 개발한 CPU다.
+VM가 이해하는 기계어로 번역되는 언어는 Native Language라 부르지 않고 Managed Language라 부른다.
+예를 들어 JAVA는 VM이 이해하는 byte code로 번역되어 실행된다.
+JAVA를 위한 VM을 JVM이라 부른다.
+Managed Language의 장점은 운영체제에 의존하지 않는다.
+JavaScript, Python 등 다양한 Managed Language가 존재하고 각각의 VM이 존재한다.
+
+### 5-3. 인터프리터
+
+컴파일은 코드 전체를 읽어 전체를 번역한 기계어 파일을 생성한 뒤에 실행한다.
+인터프리터는 고급어를 한 줄씩 읽고 번역하여 실행한다.
+사용자 입장에서는 Machine을 이용하지 않고 직접 실행하는 것처럼 느끼게 된다.
+성능면에서 컴파일 방식보다 느리지만, 유연성이 높다는 장점이 있다.
+최근에 많은 언어들이 컴파일 방식과 인터프리터 방식을 혼합해서 사용하기 때문에 경계가 모호해지고 있다.
+
+### 5-4. API와 SDK
+
+프로그램은 여러 함수를 호출하여 실행하여 연산한다.
+직접 함수를 작성하기도 하지만 이미 만들어진 함수를 사용하기도 한다.
+
+API(Application Programming Interface)는 프로그래밍을 하는데, 쉽게 사용할 수 있도록 제공하는 Interface다.
+Interface는 추상화된 함수다.
+사용자 입장에서는 내부에서 어떻게 동작하는지 알 필요없이 원하는 기능의 함수를 가져다 사용할 수 있다.
+
+SDK(Software Development Kit)는 API 등을 포함한 개발 도구 묶음이다.
+IOS 개발 시에 IOS에서 제공하는 IOS SDK에는 함수 묶음을 제공한다.
+
+API는 특정 기능을 사용하기 위해, SDK는 기능을 포함한 환경을 제공받기 위해 사용한다.
+
+## 6. 자료구조
+
+자료구조에서 자료란 컴퓨터 메모리에 저장된 데이터를 의미한다.
+즉 정보를 구조화하여 정리한 것이 자료구조다.
+자료구조를 이야기할 때 항상 따라오는 단어는 알고리즘이다.
+알고리즘은 문제 해별에 관한 공식으로 특정 문제에 대한 해결책을 코드화 해놓은 것이다.
+알고리즘의 대부분은 자료구조에 의존적이다.
+자료를 정리하는 이유는 원하는 데이터를 빠르고 효율적으로 찾기 위해서다.
+자료구조는 크게 선형, 비선형 두 가지로 나뉜다.
+성능면에서 비선형 구조가 좋지만, 구조가 복잡해서 논리적으로 이해하기 어려울 수 있다.
+DB는 데이터를 구조화해서 저장하고 제공하는 S/W로 빠르고 효율적인 성능이 중요하기 때문에 Tree 구조(비선형 자료구조의 대표적인 자료구조)로 구현되어 있다.
+
+### 6-1. 선형 자료구조
+
+선형 자료구조를 대표하는 스택(Stack)과 큐(Queue)에 대해서 알아보자
+
+<CustomImage src={stack} alt={"Stack"} />
+
+스택은 FILO(First In Last Out) 구조다.
+입출력 지점이 하나로 되어있다.
+입력을 Push, 출력을 Pop이라 부른다.
+처음 입력된 자료를 꺼내기 위해서는 최신순의 자료들을 모두 꺼내야 한다.
+주로 뒤집기나 뒤로 가기와 같은 기능을 사용할 때 활용하기 좋다.
+
+<CustomImage src={queue} alt={"Queue"} />
+
+큐는 FIFO(First In First Out) 구조다.
+입출력 지점이 각각 하나씩 존재한다.
+입력을 Enqueue, 출력을 Dequeue라고 표현한다.
+처음 입력된 자료를 가장 처음으로 꺼낸다.
+동기화 작업 시에 유용하게 활용할 수 있다.
+
+### 6-2. 비선형 자료구조
+
+<CustomImage src={binary_tree} alt={"Binary Tree"} />
+
+7개의 자료가 있다고 가정했을 때 선형 자료구조에 저장했다면 최악의 경우 7개를 모두 찾아봐야 한다.
+2진트리는 자료당 두 개의 위치정보(링크)를 이용해 셋을 하나로 묶는 형태다.
+보통 숫자를 저장할 때 가장 위에 있는 숫자를 기준으로 더 작은 숫자를 왼쪽, 큰 수를 오른쪽에 둔다.
+특정 숫자를 찾을 때 최악의 경우에도 3번만 찾아보면 되기 때문에 선형 자료 구조에 비해 성능이 좋다.
+2진 트리를 넘어 B트리 B+트리 등 여러 고성능 트리 자료구조가 존재한다.
+앞으로 어떤 프로그래밍 언어를 학습하더라도 자료구조는 반드시 학습해야 한다.
 
 </PostContent>
